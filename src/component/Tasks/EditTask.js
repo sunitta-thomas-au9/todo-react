@@ -97,7 +97,7 @@ class EditTask extends React.Component{
                         </div>
                         
                         <button className="btn btn-danger"
-                        onClick={this.editHandler}>Edit Task</button>
+                        onClick={this.editHandler}>Update Task</button>
                         
 
                     </div>

@@ -1,4 +1,5 @@
 import {withRouter} from 'react-router-dom';
+const delUrl =`https://todo1-node-app.herokuapp.com/todo/delete`;
 const DisplayCompleted = (props) => {
     const renderList=({completedList}) =>{
         // console.log(completedList)
@@ -28,8 +29,16 @@ const DisplayCompleted = (props) => {
         // WE CAN DO THE BELOW ALSO
         // props.history.push(`/del/${id}`)
                
-        const delUrl =`https://todo1-node-app.herokuapp.com/delete`
-        fetch(`${delUrl}/${id}`,{method:'DELETE'})
+        
+        fetch(`${delUrl}/${id}`,{
+            method:'DELETE',
+            headers: {
+                'Content-Type':'application/json',
+                'Accept':'application/json'
+        }
+        })
+        .then(resp => resp.json())
+        .then(resp => console.log(resp))
         .then(window.location.reload())
     }
     return(
@@ -38,11 +47,11 @@ const DisplayCompleted = (props) => {
                 <div className="panel-heading">
                     <h3>Completed Tasks</h3>
                 </div>
-                <dv className="panel-body">
+                <div className="panel-body">
                     <div className="task-main-container">
                         {renderList(props)}
                     </div>
-                </dv>
+                </div>
             </div>
         </div>
     );

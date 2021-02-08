@@ -2,6 +2,8 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import './DisplayList.css';
 
+const delUrl =`https://todo1-node-app.herokuapp.com/todo/delete`;
+
 class DisplayList extends React.Component{
     listTodo= ({TodoList})=>{
         if(TodoList) {
@@ -33,10 +35,16 @@ class DisplayList extends React.Component{
     deleteHandler=(id)=>{
         
         // WE CAN DO THE BELOW ALSO
-        // this.props.history.push(`/del/${id}`)
-               
-        const delUrl =`https://todo1-node-app.herokuapp.com/delete`
-        fetch(`${delUrl}/${id}`,{method:'DELETE'})
+        // this.props.history.push(`/del/${id}`)              
+        
+        fetch(`${delUrl}/${id}`,{
+            method:'DELETE',
+            headers: {
+                'Content-Type':'application/json',
+                'Accept':'application/json'
+        }
+        }) 
+        // .then(this.props.history.push('/home'))       
         .then(window.location.reload())
     }
     editHandler=(id)=>{
