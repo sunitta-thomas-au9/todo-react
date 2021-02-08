@@ -35,7 +35,7 @@ class DisplayList extends React.Component{
         // WE CAN DO THE BELOW ALSO
         // this.props.history.push(`/del/${id}`)
                
-        const delUrl =`http://localhost:9700/todo/delete`
+        const delUrl =`https://todo1-node-app.herokuapp.com/delete`
         fetch(`${delUrl}/${id}`,{method:'DELETE'})
         .then(window.location.reload())
     }
