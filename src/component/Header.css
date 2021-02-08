@@ -1,0 +1,8 @@
+.nav-display{
+    background: linear-gradient(to right,#EB5757,#000000);
+    border: none;
+    outline: none;
+}
+.navbar-brand,.navbar-brand:hover,.nav  {
+color: white;
+}
